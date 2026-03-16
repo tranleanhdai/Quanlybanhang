@@ -1,0 +1,16 @@
+{
+  "name": "quanlybanhang-frontend",
+  "version": "1.0.0",
+  "description": "Static frontend for QuanLyBanHang Spring Boot app",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "clean": "rimraf src/main/resources/static/*.js",
+    "dev": "npm run build && npx concurrently \"npm run watch\" \"mvnw spring-boot:run\""
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "rimraf": "^6.0.1",
+    "concurrently": "^9.0.1"
+  }
+}

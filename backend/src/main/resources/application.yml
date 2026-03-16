@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://DESKTOP-NG5TJ8L:1435;databaseName=QuanLyBanHang;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: lethanhkhai.career@gmail.com
+    password: gwarjzgzpdxhppzs
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+jwt:
+  expiration: 86400 #30 days = 30 * 24 * 60 * 60
+  expiration-refresh-token: 86400 #60 days = 60 * 24 * 60 * 60
+  secretKey: TaqlmGv1iEDMRiFp/pHuID1+T84IABfuA0xXh4GhiUI=
+
+cloudinary:
+  cloud-name: dqtssbmtq
+  api-key: 597842177591486
+  api-secret: mG5Mchm2lSEdmK8KGHI49ynD7kc
+
+payos:
+  base-url: https://api-merchant.payos.vn
+  client-id: 839a0442-b00a-464f-b448-cb1a4cdd86c0
+  api-key: e717e182-6557-426b-8f41-f9d9b001872a
+  checksum-key: 3546d35afc18593413bac24a9defb8ea0ec867f864f002ad95ad220c4f2d49d5
+  return-url: http://localhost:5173/payment/success
+  cancel-url: http://localhost:5173/payment/cancel
+
+# ===== VNPAY SANDBOX =====
+vnpay:
+  vnp_TmnCode: FMECFCVM
+  vnp_HashSecret: J3GHJSZ0BI5HCK3BQPC30WJCUADDVJTE
+  vnp_Url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+  vnp_ReturnUrl: http://localhost:8080/api/payment/vnpay/return
+
+sepay:
+  merchant-id: SP-LIVE-TL3A8A89      # copy đúng từ dashboard
+  secret-key: spsk_live_a6nsMYdGauhs7LPDPBB6V31Vppn9B2aG  # copy đúng secret
+  ipn-path: /api/payment/sepay/ipn
+  # webhook PayOS sẽ gọi vào endpoint này trong backend
+  webhook-path: /api/payment/webhook
